@@ -97,8 +97,6 @@ namespace _02.IEnumerableExtensions
                 Console.WriteLine("Min: {0:F1}", IEnumerableT.Min<double>(numbers));
                 Console.WriteLine("Max: {0:F1}", IEnumerableT.Max<double>(numbers));
                 Console.WriteLine("Average: {0:F1}", IEnumerableT.Average<double>(numbers));
-
-
             }
         }
     }

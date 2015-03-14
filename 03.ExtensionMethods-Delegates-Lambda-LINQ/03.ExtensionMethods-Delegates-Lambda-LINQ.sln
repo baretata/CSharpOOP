@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Substring", "Substring\01.Substring.csproj", "{D2190A6B-E448-488B-8CBC-43CAE8C76179}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Substring", "01.Substring\01.Substring.csproj", "{D2190A6B-E448-488B-8CBC-43CAE8C76179}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.IEnumerableExtensions", "02.IEnumerableExtensions\02.IEnumerableExtensions.csproj", "{E09FC2E7-DC71-4B15-A4A5-080E89CC86D2}"
 EndProject
