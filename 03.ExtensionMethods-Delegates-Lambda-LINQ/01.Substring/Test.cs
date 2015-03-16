@@ -9,7 +9,7 @@ namespace Substring
 
     public class Test
     {
-        static void Main()
+        public static void Main()
         {
             string test = "WTF am I doing here";
             var sb = new StringBuilder();

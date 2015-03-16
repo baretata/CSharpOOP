@@ -10,12 +10,9 @@ namespace _18.StudentsByGroupName
 
     public static class ExtensionMethodGrouping
     {
-        public static IEnumerable<Student> ExtensionGrouping(this List<Student> groups)
+        public static IEnumerable<Student> ExtensionGrouping(this IEnumerable<Student> groups)
         {
-            var grouped = groups.OrderBy(x => x.Group);
-
-            return grouped;
+            return groups.OrderBy(x => x.Group);
         }
-
     }
 }

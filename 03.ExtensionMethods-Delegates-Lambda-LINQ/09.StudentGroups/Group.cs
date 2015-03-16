@@ -5,29 +5,44 @@
     public class Group
     {
         private int groupNumber;
-        private string departmentName;
+        private string groupName;
 
         public Group()
-        { 
+        {
         }
 
-        public Group(int groupNumber, string departmentName)
-            :this()
+        public Group(int groupNumber, string groupName)
+            : this()
         {
             this.GroupNumber = groupNumber;
-            this.DepartmentName = departmentName;
+            this.GroupName = groupName;
         }
 
         public int GroupNumber
         {
             get { return groupNumber; }
-            set { this.groupNumber = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Group number cannot be negative");
+                }
+                this.groupNumber = value;
+            }
         }
 
-        public string DepartmentName
+        public string GroupName
         {
-            get { return departmentName; }
-            set { this.departmentName = value; }
+            get { return groupName; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Group name cannot be null or empty");
+                }
+
+                this.groupName = value;
+            }
         }
     }
 }

@@ -5,18 +5,17 @@
 namespace _17.LongestString
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
-    class LongestStringProgram
+    public class LongestStringProgram
     {
-        static string FindLongestString(string[] arr)
+        public static string FindLongestString(IList<string> arr)
         {
-            var longest = arr.OrderByDescending(x => x.Length).First();
-
-            return longest;
+            return arr.OrderByDescending(x => x.Length).First();
         }
 
-        static void Main()
+        public static void Main()
         {
             string[] stringArray = new string[]
             {

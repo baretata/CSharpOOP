@@ -27,7 +27,7 @@ namespace _18.StudentsByGroupName
 
             foreach (var st in grouped)
             {
-                Console.WriteLine("Name: {0}, Department: {1}", st.Name, st.Group);
+                Console.WriteLine(st.ToString());
             }
         }
     }

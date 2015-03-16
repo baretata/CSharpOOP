@@ -82,7 +82,7 @@ namespace _02.IEnumerableExtensions
 
         public class Test
         {
-            static void Main()
+            public static void Main()
             {
                 IEnumerable<double> numbers = new double[] { 2.0, 3.5, 4.2, 5.1 };
 

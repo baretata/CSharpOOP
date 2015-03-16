@@ -5,18 +5,17 @@
  * Problem 5: Using the extension methods OrderBy() and ThenBy() with lambda expressions sort the students by first name
         and last name in descending order.Rewrite the same with LINQ.
  */
+
 namespace _03.SortingStudentsNames
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    class Program
+    public class Program
     {
         //problem 3
-        public static void SortByFirstName(Student[] studentsGroup)
+        public static void SortByFirstName(IList<Student> studentsGroup)
         {
             //var sorted = studentGroup.Where(st => st.FirstName.CompareTo(st.LastName) < 0);       Using Lambda expression
             var sorted =
@@ -27,15 +26,11 @@ namespace _03.SortingStudentsNames
 
             Console.WriteLine("Students sorted by first name before last name alpabetically:");
 
-            foreach (Student student in sorted)
-            {
-                Console.WriteLine(student.FirstName + " " + student.LastName);
-            }
-            Console.WriteLine();
+            Print(sorted);
         }
 
         //problem 4
-        public static void SortByAge(Student[] studentsGroup)
+        public static void SortByAge(IList<Student> studentsGroup)
         {
 
             //var sorted = studentGroup.Where(st => st.Age >= 18 && st.Age <= 24);     Using Lambda expression
@@ -47,15 +42,11 @@ namespace _03.SortingStudentsNames
 
             Console.WriteLine("Students ordered by age between 18 and 24:");
 
-            foreach (Student student in sorted)
-            {
-                Console.WriteLine(student.FirstName + " " + student.LastName);
-            }
-            Console.WriteLine();
+            Print(sorted);
         }
 
         //problem 5
-        public static void SortNamesByDescending(Student[] studentsGroup)
+        public static void SortNamesByDescending(IList<Student> studentsGroup)
         {
             //Using Lambda expression
             //var descendingSort = studentsGroup.OrderByDescending(st => st.FirstName).ThenByDescending(st => st.LastName);
@@ -68,28 +59,40 @@ namespace _03.SortingStudentsNames
 
             Console.WriteLine("Descending order of students' names:");
 
-            foreach (Student student in descendingSort)
+            Print(descendingSort);
+        }
+
+        public static void Print(IEnumerable<Student> students)
+        {
+            foreach (Student student in students)
             {
                 Console.WriteLine(student.FirstName + " " + student.LastName);
             }
             Console.WriteLine();
         }
 
-        static void Main()
+        public static void Main()
         {
-            Student[] group10 = new Student[]
+            try
             {
-                new Student("Pavel","Ivanov", 22),
-                new Student("Miro","Kirov", 25),
-                new Student("Aleks","Zelev", 30),
-                new Student("Dwayne","Johnson", 21),
-            };
+                Student[] group10 = new Student[]
+                {
+                    new Student("Pavel","Ivanov", 22),
+                    new Student("Miro","Kirov", 23),
+                    new Student("Aleks","Zelev", 30),
+                    new Student("Dwayne","Johnson", 21),
+                };
 
-            SortByFirstName(group10);
-            
-            SortByAge(group10);
+                SortByFirstName(group10);
 
-            SortNamesByDescending(group10);
+                SortByAge(group10);
+
+                SortNamesByDescending(group10);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

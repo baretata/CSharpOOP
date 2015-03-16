@@ -24,7 +24,7 @@ namespace _09.StudentGroups
     public class MainProgram
     {
         //problem 16*
-        public static void SortByMathematicsDepartment(List<Student> studentsGroup, List<Group> groups)
+        public static void SortByMathematicsDepartment(IEnumerable<Student> studentsGroup, IEnumerable<Group> groups)
         {
             var sorted =                              
                 from st in studentsGroup
@@ -34,15 +34,11 @@ namespace _09.StudentGroups
 
             Console.WriteLine("Students from Mathematics Department");
 
-            foreach (Student student in sorted)
-            {
-                Console.WriteLine(student.FirstName + " " + student.LastName);
-            }
-            Console.WriteLine();
+            PrintStudents(sorted);
         }
 
         //problem 15
-        public static void SortBySigningIn2006(List<Student> studentsGroup)
+        public static void SortBySigningIn2006(IEnumerable<Student> studentsGroup)
         {
             var sorted =
                 from st in studentsGroup
@@ -53,14 +49,14 @@ namespace _09.StudentGroups
 
             foreach (Student student in sorted)
             {
-                Console.WriteLine(student.FirstName + " " + student.LastName +
+                Console.WriteLine(student.ToString() +
                     "[" + string.Join(", ", student.Marks) + "]");
             }
             Console.WriteLine();
         }
 
         //problem 14 method
-        public static void SortByAtleastTwoMarks(List<Student> studentsGroup)
+        public static void SortByAtleastTwoMarks(IEnumerable<Student> studentsGroup)
         {
             var sorted = ExtensionMethods.ExtensionSortByAtleastTwoMarks(studentsGroup);
 
@@ -68,19 +64,19 @@ namespace _09.StudentGroups
 
             foreach (var student in sorted)
             {
-                Console.WriteLine(student.FirstName + " " + student.LastName +
+                Console.WriteLine(student.ToString() +
                     "[" + string.Join(", ", student.Marks) + "]");
             }
             Console.WriteLine();
         }
 
         //problem 13
-        public static void SortByExcelentMark(List<Student> studentsGroup)
+        public static void SortByExcelentMark(IEnumerable<Student> studentsGroup)
         {
             var sorted =
                 from st in studentsGroup
                 where st.Marks.Contains(6)
-                select new { FullName = st.FirstName + " " + st.LastName, Marks = st.Marks };
+                select new { FullName = st.ToString(), Marks = st.Marks };
 
             Console.WriteLine("Students sorted by atleast one 6 mark");
 
@@ -92,7 +88,7 @@ namespace _09.StudentGroups
         }
 
         //problem 12
-        public static void SortByPhoneInSofia(List<Student> studentsGroup)
+        public static void SortByPhoneInSofia(IEnumerable<Student> studentsGroup)
         {
             var sorted =
                 from st in studentsGroup
@@ -101,15 +97,11 @@ namespace _09.StudentGroups
 
             Console.WriteLine("Students with phone numbers in Sofia");
 
-            foreach (Student student in sorted)
-            {
-                Console.WriteLine(student.FirstName + " " + student.LastName);
-            }
-            Console.WriteLine();
+            PrintStudents(sorted);
         }
 
         //problem 11
-        public static void SortByEmail(List<Student> studentsGroup)
+        public static void SortByEmail(IEnumerable<Student> studentsGroup)
         {
             var sorted =
                 from st in studentsGroup
@@ -118,15 +110,11 @@ namespace _09.StudentGroups
 
             Console.WriteLine("Students with email in ABV.BG");
 
-            foreach (Student student in sorted)
-            {
-                Console.WriteLine(student.FirstName + " " + student.LastName);
-            }
-            Console.WriteLine();
+            PrintStudents(sorted);
         }
 
         //problem 9 method
-        public static void SortByGroup(List<Student> studentsGroup)
+        public static void SortByGroup(IEnumerable<Student> studentsGroup)
         {
             //var sorted =                              
             //    from st in studentGroup
@@ -138,9 +126,14 @@ namespace _09.StudentGroups
 
             Console.WriteLine("Students from group 2 ordered by first name");
 
-            foreach (Student student in sorted)
+            PrintStudents(sorted);
+        }
+
+        public static void PrintStudents(IEnumerable<Student> studentsGroup)
+        {
+            foreach (Student student in studentsGroup)
             {
-                Console.WriteLine(student.FirstName + " " + student.LastName);
+                Console.WriteLine(student.ToString());
             }
             Console.WriteLine();
         }

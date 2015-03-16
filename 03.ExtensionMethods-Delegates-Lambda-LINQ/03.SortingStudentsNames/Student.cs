@@ -1,10 +1,6 @@
 ﻿namespace _03.SortingStudentsNames
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Student
     {
@@ -12,27 +8,52 @@
         private string lastName;
         private byte age;
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public byte Age 
+        public Student(string firstName, string lastName, byte age)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Age = age;
+        }
+
+        public string FirstName
+        {
+            get { return this.firstName; }
+            private set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("First name cannot be null or empty");
+                }
+
+                this.firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get { return this.lastName; }
+            private set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Last name cannot be null or empty");
+                }
+
+                this.lastName = value;
+            }
+        }
+
+        public byte Age
         {
             get { return age; }
-            set
+            private set
             {
-                if (age < 0 || age >= 125)
+                if (value < 0 || value >= 125)
                 {
                     throw new ArgumentOutOfRangeException("Index is not valid age");
                 }
                 this.age = value;
             }
-        }
-
-        public Student(string firstName,string lastName, byte age)
-        {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Age = age;
-
         }
     }
 }
