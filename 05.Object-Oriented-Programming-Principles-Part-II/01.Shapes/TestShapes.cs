@@ -20,7 +20,7 @@ namespace _01.Shapes
             {
                 new Rectangle(5.0, 4.5),
                 new Triangle(3.1, 5.5),
-                new Circle(3.5)
+                new Square(3.5)
             };
 
             foreach (var shape in shapes)
