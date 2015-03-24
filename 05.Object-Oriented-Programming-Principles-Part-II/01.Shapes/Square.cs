@@ -12,7 +12,7 @@
 
         public override double CalculateSurface()
         {
-            return Math.PI * (this.Width / 2) * (this.Height / 2);
+            return this.Width * this.Height;
         }
     }
 }
